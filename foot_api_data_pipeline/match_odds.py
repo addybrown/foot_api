@@ -11,6 +11,7 @@ from common.sql_services import (
     write_sql,
     check_table_exists,
     create_session,
+    bulk_upsert_write_sql,
 )
 
 from common.pandas_services import append_to_dict_list
@@ -112,12 +113,8 @@ def update_match_odds_table(
         )
 
         if not match_odds_df.empty:
-            write_sql(
-                match_odds_df,
-                db_table=db_table,
-                db_schema=db_schema,
-                session=session,
-                terminate_connection=True,
+            bulk_upsert_write_sql(
+                match_odds_df, dbtable=db_table, dbschema=db_schema, session=session
             )
 
         time.sleep(wait_time)

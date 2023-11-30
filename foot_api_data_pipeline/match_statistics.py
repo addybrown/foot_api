@@ -11,6 +11,7 @@ from common.sql_services import (
     write_sql,
     check_table_exists,
     create_session,
+    bulk_upsert_write_sql,
 )
 
 from api_harvesting.utils import FootApiHarvester
@@ -111,12 +112,11 @@ def update_match_statistics_table(
         )
 
         if not match_statistics_df.empty:
-            write_sql(
+            bulk_upsert_write_sql(
                 match_statistics_df,
-                db_table=db_table,
-                db_schema=db_schema,
+                dbtable=db_table,
+                dbschema=db_schema,
                 session=session,
-                terminate_connection=True,
             )
 
         time.sleep(wait_time)

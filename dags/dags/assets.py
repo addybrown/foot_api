@@ -1,12 +1,12 @@
 import sys
 import time
 import pandas as pd
-from dotenv import load_dotenv
+
 from datetime import datetime, timedelta
 from dagster import asset
 
 sys.path.append(r"C:\Users\adams\Documents\personal_projects\foot_api")
-
+from dotenv import load_dotenv
 from foot_api_data_pipeline.schedule import get_schedule_df
 from foot_api_data_pipeline.services import get_schedule
 
@@ -121,7 +121,7 @@ def update_match_incidents(update_schedule_table: str):
 
 
 @asset
-def update_match_lineup_and_player_statistics(update_schedule_table: str):
+def update_match_lineup(update_schedule_table: str):
     if update_schedule_table == "Done":
         update_match_lineup_and_player_statistics()
 

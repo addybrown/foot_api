@@ -12,6 +12,7 @@ from common.sql_services import (
     check_table_exists,
     create_session,
     execute_sql,
+    bulk_upsert_write_sql,
 )
 
 from api_harvesting.utils import FootApiHarvester
@@ -139,12 +140,8 @@ def update_player_match_statistics_table(
                     create_col_sql_string, session=session, terminate_connection=True
                 )
 
-        write_sql(
-            match_df,
-            db_table=db_table,
-            db_schema=db_schema,
-            session=session,
-            terminate_connection=True,
+        bulk_upsert_write_sql(
+            match_df, dbtable=db_table, dbschema=db_schema, session=session
         )
 
 
