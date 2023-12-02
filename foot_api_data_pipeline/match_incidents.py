@@ -3,23 +3,25 @@ import numpy as np
 import datetime
 import os
 import time
+from dotenv import load_dotenv
 
+load_dotenv()
 all_sports_api_key = os.getenv("all_sports_api_key")
 
-from common.sql_services import (
+from services.sql_services import (
     read_sql,
     write_sql,
     check_table_exists,
     create_session,
 )
 
-from api_harvesting.utils import FootApiHarvester
+from foot_api_harvesting.utils import FootApiHarvester
 from foot_api_data_pipeline.variables import (
     PLAYER_TABLE_VARIABLES,
     RELEVANT_LEAGUES,
     MATCH_INCIDENT_DATAFRAME,
 )
-from foot_api_data_pipeline.services import get_schedule
+from foot_api_data_pipeline.pipeline_services import get_schedule
 
 
 def update_match_incidents_table(

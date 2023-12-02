@@ -11,7 +11,7 @@ setup(
     author="Adam Sequeira",
     author_email="adamsequeira@outlook.com",
     description="Parses soccer data from foot_api",
-    long_description="This function parses football data",
+    long_description="For parses rapid api foot_api football data",
     long_description_content_type="text/markdown",
     url="https://github.com/addybrown/foot_api",
     classifiers=[
