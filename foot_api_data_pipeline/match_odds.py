@@ -16,7 +16,7 @@ from services.sql_services import (
     bulk_upsert_write_sql,
 )
 
-from common.pandas_services import append_to_dict_list
+from services.pandas_services import append_to_dict_list
 from foot_api_harvesting.utils import FootApiHarvester
 from foot_api_data_pipeline.variables import (
     MATCH_ODDS_DATAFRAME,

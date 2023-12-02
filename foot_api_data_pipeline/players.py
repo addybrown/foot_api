@@ -17,7 +17,7 @@ from services.sql_services import (
     bulk_upsert_sql,
 )
 
-from common.pandas_services import adjust_col_name_format
+from services.pandas_services import adjust_col_name_format
 from foot_api_harvesting.utils import FootApiHarvester
 from foot_api_data_pipeline.variables import (
     PLAYER_TABLE_VARIABLES,

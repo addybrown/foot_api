@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 all_sports_api_key = os.getenv("all_sports_api_key")
 
-from common.sql_services import (
+from services.sql_services import (
     read_sql,
     write_sql,
     check_table_exists,

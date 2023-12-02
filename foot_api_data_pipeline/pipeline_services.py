@@ -2,7 +2,7 @@ import datetime
 from dotenv import load_dotenv
 
 load_dotenv()
-from common.sql_services import (
+from services.sql_services import (
     read_sql,
     create_session,
 )
