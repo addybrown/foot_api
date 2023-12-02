@@ -6,6 +6,7 @@ from datetime import datetime, timedelta
 from dagster import asset
 
 sys.path.append(r"C:\Users\adams\Documents\personal_projects\foot_api")
+
 from dotenv import load_dotenv
 from foot_api_data_pipeline.schedule import get_schedule_df
 from foot_api_data_pipeline.services import get_schedule
