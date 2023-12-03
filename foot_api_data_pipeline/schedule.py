@@ -101,13 +101,13 @@ def update_schedule_table(
         existing_columns = existing_schedule_df.columns.tolist()
 
         if not schedule_df.empty:
-            match_id_difference = list(
-                set(schedule_df["match_id"].unique().tolist()).difference(
-                    set(existing_schedule_df["match_id"].unique().tolist())
-                )
-            )
+            # match_id_difference = list(
+            #     set(schedule_df["match_id"].unique().tolist()).difference(
+            #         set(existing_schedule_df["match_id"].unique().tolist())
+            #     )
+            # )
 
-            schedule_df = schedule_df.query(f"match_id == {match_id_difference}")
+            # schedule_df = schedule_df.query(f"match_id == {match_id_difference}")
 
             if not schedule_df.empty:
                 schedule_df["created_on"] = datetime.datetime.utcnow()
