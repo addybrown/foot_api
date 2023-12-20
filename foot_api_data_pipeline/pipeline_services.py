@@ -18,6 +18,7 @@ def get_schedule(
     league_list=None,
     order_dates=True,
     match_id_list=None,
+    closed_games=None,
     session=None,
 ):
     """
@@ -87,14 +88,19 @@ def get_schedule(
         if order_dates:
             order_dates_str = "ORDER BY DATE(match_start_time)"
 
+        closed_games_str = ""
+        if not closed_games:
+            closed_games_str = "AND status = 'finished' "
+
         schedule_df_sql_string = f"""
         SELECT * FROM {db_schema}.{db_table} 
             WHERE tournament_name is not null
                 {country_list_str}
                 {date_range_str}
                 {league_list_str}
-                {order_dates_str}
                 {match_ids_list_string}
+                {closed_games_str}
+                {order_dates_str}
         """
 
         schedule_df = read_sql(schedule_df_sql_string, session=session)

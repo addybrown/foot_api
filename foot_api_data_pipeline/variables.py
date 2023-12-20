@@ -287,25 +287,25 @@ SEASONS = {
 PLAYER_TABLE_VARIABLES = {
     "player_table_country_names": [
         "England",
-        # "Spain",
-        # "Portugal",
-        # "Germany",
-        # "France",
+        "Spain",
+        "Portugal",
+        "Germany",
+        "France",
         "Europe",
     ]
 }
 
 RELEVANT_LEAGUES = [
     "Premier League",
-    # "Bundesliga",
-    # "Ligue 1",
-    # "Ligue 2",
-    # "LaLiga",
-    # "Championship",
-    # "League One",
-    # "League Two",
-    # "2. Bundesliga",
-    # "MLS",
+    "Bundesliga",
+    "Ligue 1",
+    "Ligue 2",
+    "LaLiga",
+    "Championship",
+    "League One",
+    "League Two",
+    "2. Bundesliga",
+    "MLS",
 ]
 
 PLAYER_STATISTICS = {

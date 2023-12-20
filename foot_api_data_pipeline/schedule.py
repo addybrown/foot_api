@@ -92,8 +92,7 @@ def update_schedule_table(
         schedule_df = get_schedule_df(day, month, year)
         schedule_df["match_id"] = schedule_df["match_id"].astype(str)
 
-        # bulk_upsert_write_sql(df=schedule_df, dbtable=db_table, dbschema=db_schema, session=session)
-
+       
         existing_schedule_df = read_sql(
             f"SELECT * from {db_schema}.{db_table}", session=session
         )
@@ -101,14 +100,6 @@ def update_schedule_table(
         existing_columns = existing_schedule_df.columns.tolist()
 
         if not schedule_df.empty:
-            # match_id_difference = list(
-            #     set(schedule_df["match_id"].unique().tolist()).difference(
-            #         set(existing_schedule_df["match_id"].unique().tolist())
-            #     )
-            # )
-
-            # schedule_df = schedule_df.query(f"match_id == {match_id_difference}")
-
             if not schedule_df.empty:
                 schedule_df["created_on"] = datetime.datetime.utcnow()
                 bulk_upsert_write_sql(
